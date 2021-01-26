@@ -8,7 +8,7 @@ enabled_site_setting :vk_auth_enabled
 enabled_site_setting :vk_app_id
 enabled_site_setting :vk_secure_key
 
-gem 'omniauth-vkontakte', '1.6.1'
+gem 'omniauth-vkontakte', '1.7.0'
 
 class Auth::VkontakteAuthenticator < Auth::ManagedAuthenticator
 
