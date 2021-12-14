@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # name: discourse-vk-auth
 # about: Authenticate with VK.com
 # version: 0.1
