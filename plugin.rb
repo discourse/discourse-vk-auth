@@ -44,6 +44,12 @@ class Auth::VkontakteAuthenticator < Auth::ManagedAuthenticator
     auth_token[:extra] = {}
     super
   end
+
+  # VK doesn't return unverified emails in their API so we're safe to assume
+  # that emails we get from them are verified
+  def primary_email_verified?(auth_token)
+    true
+  end
 end
 
 auth_provider frame_width: 920,
