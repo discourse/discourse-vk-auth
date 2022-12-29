@@ -10,10 +10,9 @@ enabled_site_setting :vk_auth_enabled
 enabled_site_setting :vk_app_id
 enabled_site_setting :vk_secure_key
 
-gem 'omniauth-vkontakte', '1.7.1'
+gem "omniauth-vkontakte", "1.7.1"
 
 class Auth::VkontakteAuthenticator < Auth::ManagedAuthenticator
-
   def name
     "vkontakte"
   end
@@ -24,12 +23,13 @@ class Auth::VkontakteAuthenticator < Auth::ManagedAuthenticator
 
   def register_middleware(omniauth)
     omniauth.provider :vkontakte,
-           setup: lambda { |env|
-             strategy = env["omniauth.strategy"]
-              strategy.options[:client_id] = SiteSetting.vk_app_id
-              strategy.options[:client_secret] = SiteSetting.vk_secure_key
-              strategy.options[:scope] = 'email'
-           }
+                      setup:
+                        lambda { |env|
+                          strategy = env["omniauth.strategy"]
+                          strategy.options[:client_id] = SiteSetting.vk_app_id
+                          strategy.options[:client_secret] = SiteSetting.vk_secure_key
+                          strategy.options[:scope] = "email"
+                        }
   end
 
   def description_for_user(user)
@@ -52,9 +52,7 @@ class Auth::VkontakteAuthenticator < Auth::ManagedAuthenticator
   end
 end
 
-auth_provider frame_width: 920,
-              frame_height: 800,
-              authenticator: Auth::VkontakteAuthenticator.new
+auth_provider frame_width: 920, frame_height: 800, authenticator: Auth::VkontakteAuthenticator.new
 
 register_svg_icon "fab fa-vk" if respond_to?(:register_svg_icon)
 
