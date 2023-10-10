@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 # name: discourse-vk-auth
-# about: Authenticate with VK.com
+# about: Allows users to login to your forum using VK.com Authentication 
+# meta_topic_id: 12987
 # version: 0.1
 # author: Penar Musaraj
 # url: https://github.com/discourse/discourse-vk-auth
