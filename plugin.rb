@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # name: discourse-vk-auth
-# about: Allows users to login to your forum using VK.com Authentication 
+# about: Allows users to login to your forum using VK.com Authentication
 # meta_topic_id: 12987
 # version: 0.1
 # author: Penar Musaraj
