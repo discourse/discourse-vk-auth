@@ -7,7 +7,7 @@ describe "VK Oauth2" do
   let(:temp_code) { "vk_temp_code_544254" }
   let(:vk_user_id) { 9_829_345_845_345 }
 
-  fab!(:user) { Fabricate(:user) }
+  fab!(:user)
 
   def setup_vk_email_stub(email:)
     stub_request(:post, "https://oauth.vk.com/access_token").with(
