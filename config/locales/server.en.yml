@@ -3,5 +3,5 @@
 en:
   site_settings:
     vk_auth_enabled: "Enable Login via VK"
-    vk_app_id: "App ID for VK authentication, registered at https://vk.com"
-    vk_secure_key: "Secure key for VK authentication, registered at https://vk.com"
+    vk_app_id: "App ID for VK authentication, registered at https://vk.ru"
+    vk_secure_key: "Secure key for VK authentication, registered at https://vk.ru"

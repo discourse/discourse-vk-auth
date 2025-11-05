@@ -2,5 +2,5 @@
 
 ru:
   site_settings:
-    vk_app_id: "App ID, зарегистрированный в https://vk.com/"
-    vk_secure_key: "Secure key, зарегистрированный https://vk.com/"
+    vk_app_id: "App ID, зарегистрированный в https://vk.ru/"
+    vk_secure_key: "Secure key, зарегистрированный https://vk.ru/"
