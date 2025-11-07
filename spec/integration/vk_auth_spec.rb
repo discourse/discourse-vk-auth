@@ -10,7 +10,7 @@ describe "VK Oauth2" do
   fab!(:user)
 
   def setup_vk_email_stub(email:)
-    stub_request(:post, "https://oauth.vk.com/access_token").with(
+    stub_request(:post, "https://oauth.vk.ru/access_token").with(
       body:
         hash_including("client_id" => app_id, "client_secret" => secure_key, "code" => temp_code),
     ).to_return(
@@ -29,7 +29,7 @@ describe "VK Oauth2" do
 
     stub_request(
       :get,
-      "https://api.vk.com/method/users.get?access_token=#{access_token}&fields=nickname,screen_name,sex,city,country,online,bdate,photo_50,photo_100,photo_200,photo_200_orig,photo_400_orig&https=0&lang=&v=5.107",
+      "https://api.vk.ru/method/users.get?access_token=#{access_token}&fields=nickname,screen_name,sex,city,country,online,bdate,photo_50,photo_100,photo_200,photo_200_orig,photo_400_orig&https=0&lang=&v=5.107",
     ).to_return(
       status: 200,
       body: JSON.dump(response: [{ id: vk_user_id.to_s, first_name: "Russian", last_name: "Guy" }]),
@@ -42,7 +42,7 @@ describe "VK Oauth2" do
   it "signs in the user if the API response from VK includes an email (implies it's verified) and the email matches an existing user's" do
     post "/auth/vkontakte"
     expect(response.status).to eq(302)
-    expect(response.location).to start_with("https://oauth.vk.com/authorize")
+    expect(response.location).to start_with("https://oauth.vk.ru/authorize")
 
     setup_vk_email_stub(email: user.email)
 
@@ -55,7 +55,7 @@ describe "VK Oauth2" do
   it "doesn't sign in anyone if the API response from VK doesn't include an email (implying the user's email on VK isn't verified)" do
     post "/auth/vkontakte"
     expect(response.status).to eq(302)
-    expect(response.location).to start_with("https://oauth.vk.com/authorize")
+    expect(response.location).to start_with("https://oauth.vk.ru/authorize")
 
     setup_vk_email_stub(email: nil)
 
